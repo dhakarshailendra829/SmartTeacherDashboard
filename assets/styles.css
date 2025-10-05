@@ -1,0 +1,166 @@
+/* ====================== GENERAL ====================== */
+body, .stApp {
+    background-color: #0e1117 !important;
+    color: #ffffff !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ====================== TOP NAVIGATION ====================== */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0e1117;
+    padding: 12px 0;
+    font-size: 18px;
+    box-shadow: 0px 2px 8px #00ffff44;
+}
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.navbar a:hover, .active {
+    background-color: #00ffff;
+    color: #0e1117;
+    transform: scale(1.1);
+}
+
+/* ====================== BUTTONS ====================== */
+.stButton>button {
+    background-color: #4e5d6c !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+.stButton>button:hover {
+    background-color: #00ffff !important;
+    color: #0e1117 !important;
+    transform: scale(1.05);
+}
+
+/* ====================== TEACHER CARDS ====================== */
+.teacher-card {
+    background: #1f2029;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px #00ffff33;
+    transition: all 0.3s ease;
+}
+.teacher-card:hover {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0px 0px 25px #00ffffaa;
+}
+.teacher-card h3 {
+    color: #00ffff;
+    font-weight: bold;
+}
+.teacher-card p {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* ====================== INVENTOR CARDS ====================== */
+.inventor-card {
+    background: #1f2029;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 12px;
+    border-left: 4px solid #00ffff;
+    box-shadow: 0px 0px 12px #00ffff44;
+    transition: all 0.3s ease;
+}
+.inventor-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px #00ffffaa;
+}
+.inventor-card h4 {
+    color: #00ffff;
+    margin-bottom: 5px;
+}
+.inventor-card p {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+/* ====================== APPOINTMENT SLOTS ====================== */
+.slot-button {
+    background-color: #4e5d6c;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.slot-button:hover {
+    background-color: #00ffff;
+    color: #0e1117;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* ====================== STATISTICS / TABLE ====================== */
+.dataframe, table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.dataframe th, table th {
+    background-color: #1f2029;
+    color: #00ffff;
+    padding: 8px;
+    border: 1px solid #00ffff33;
+}
+.dataframe td, table td {
+    background-color: #0e1117;
+    color: #ffffff;
+    padding: 8px;
+    border: 1px solid #00ffff33;
+}
+
+/* ====================== BALLOONS / CELEBRATION ====================== */
+@keyframes balloonFloat {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-500px);}
+}
+.balloon {
+    width: 30px;
+    height: 40px;
+    background-color: #00ffff;
+    border-radius: 50%;
+    position: absolute;
+    animation: balloonFloat 4s linear infinite;
+}
+
+/* ====================== ABOUT PAGE ====================== */
+.about-card {
+    background: #1f2029;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px #00ffff33;
+    transition: transform 0.3s ease;
+}
+.about-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 25px #00ffffaa;
+}
+.about-card h3 {
+    color: #00ffff;
+}
+.about-card p {
+    color: #ffffff;
+}
+
+/* ====================== MISC ====================== */
+.stTextInput>div>input {
+    background-color: #1f2029 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+}
+.stTextInput>div>input:focus {
+    border: 2px solid #00ffff !important;
+}

@@ -1,0 +1,101 @@
+Teacher_ID,Teacher_Name,Subject,Block,Room_Number,Cabin_Number,Lecture_Start,Lecture_End,Free_Start,Free_End,Available_Days
+T101,Arun Das,Law,Block C,102,448,11:30,12:30,12:00,13:00,Mon-Fri
+T102,Qadir Mehta,Statistics,Block B,400,192,11:00,12:00,12:30,13:30,Mon-Fri
+T103,Juhi Sharma,Economics,Block B,437,367,16:30,17:30,10:00,11:00,Mon-Fri
+T104,Pooja Sharma,Linguistics,Block A,216,417,16:00,17:00,10:00,11:00,Mon-Fri
+T105,Pooja Bose,Economics,Block D,185,483,08:00,09:00,09:30,10:30,Mon-Sat
+T106,Leena Joshi,Mathematics,Block A,470,490,15:00,16:00,10:00,11:00,Mon-Sat
+T107,Heena Joshi,Business Studies,Block B,231,143,16:00,17:00,15:30,16:30,Mon-Sat
+T108,Om Iyer,Business Studies,Block B,430,204,12:30,13:30,08:30,09:30,Mon-Fri
+T109,Zara Iyer,Environmental Science,Block C,335,398,09:30,10:30,10:30,11:30,Mon-Sat
+T110,Rita Das,Sociology,Block D,393,356,08:00,09:00,10:30,11:30,Mon-Fri
+T111,Nikita Patel,Linguistics,Block C,359,127,10:30,11:30,13:00,14:00,Mon-Sat
+T112,Deepa Sharma,Political Science,Block C,422,496,09:30,10:30,15:30,16:30,Mon-Sat
+T113,Xenia Sharma,Statistics,Block A,227,317,11:00,12:00,16:00,17:00,Mon-Fri
+T114,Tina Gupta,Political Science,Block A,474,323,12:00,13:00,12:00,13:00,Mon-Sat
+T115,Xenia Patel,Law,Block C,347,459,14:00,15:00,08:00,09:00,Mon-Fri
+T116,Leena Das,Geography,Block C,155,115,09:30,10:30,16:00,17:00,Mon-Fri
+T117,Xenia Gupta,English,Block A,177,365,11:00,12:00,11:30,12:30,Mon-Fri
+T118,Deepa Joshi,Mathematics,Block A,418,155,12:00,13:00,10:00,11:00,Mon-Fri
+T119,Juhi Chopra,Psychology,Block B,253,279,16:00,17:00,13:30,14:30,Mon-Sat
+T120,Om Iyer,Mathematics,Block A,390,132,16:30,17:30,11:30,12:30,Mon-Sat
+T121,Xenia Mishra,Environmental Science,Block C,367,142,14:00,15:00,15:30,16:30,Mon-Fri
+T122,Chirag Gupta,Mathematics,Block A,210,248,16:30,17:30,13:00,14:00,Mon-Fri
+T123,Chirag Sharma,Philosophy,Block D,486,297,11:00,12:00,10:30,11:30,Mon-Fri
+T124,Leena Sharma,Computer Science,Block A,305,354,08:00,09:00,16:30,17:30,Mon-Sat
+T125,Juhi Bose,Linguistics,Block C,101,272,14:30,15:30,11:30,12:30,Mon-Fri
+T126,Gaurav Joshi,Political Science,Block A,228,145,08:30,09:30,09:00,10:00,Mon-Sat
+T127,Zara Sharma,Business Studies,Block A,433,426,14:30,15:30,08:30,09:30,Mon-Sat
+T128,Gaurav Patel,Sociology,Block B,247,276,13:00,14:00,10:00,11:00,Mon-Fri
+T129,Farhan Khan,Environmental Science,Block B,119,342,15:30,16:30,08:30,09:30,Mon-Fri
+T130,Nikita Mishra,Statistics,Block B,373,409,14:30,15:30,12:30,13:30,Mon-Fri
+T131,Rita Singh,Sociology,Block A,243,368,13:00,14:00,13:00,14:00,Mon-Fri
+T132,Arun Das,Linguistics,Block B,489,111,15:30,16:30,08:00,09:00,Mon-Fri
+T133,Arun Gupta,Environmental Science,Block B,137,180,14:30,15:30,10:30,11:30,Mon-Sat
+T134,Tina Mehta,History,Block C,201,491,09:30,10:30,10:00,11:00,Mon-Sat
+T135,Wasim Kapoor,Political Science,Block D,398,432,11:30,12:30,15:30,16:30,Mon-Fri
+T136,Juhi Reddy,Philosophy,Block D,103,282,11:00,12:00,10:00,11:00,Mon-Fri
+T137,Nikita Das,Astronomy,Block D,343,407,13:30,14:30,11:00,12:00,Mon-Fri
+T138,Ishaan Mishra,Psychology,Block A,283,449,16:30,17:30,15:00,16:00,Mon-Sat
+T139,Nikita Patel,English,Block B,479,351,13:30,14:30,14:30,15:30,Mon-Sat
+T140,Tina Reddy,Sociology,Block A,186,465,12:00,13:00,08:00,09:00,Mon-Sat
+T141,Pooja Iyer,Biology,Block A,298,370,16:00,17:00,16:00,17:00,Mon-Sat
+T142,Rita Khan,Astronomy,Block B,106,220,15:30,16:30,14:00,15:00,Mon-Fri
+T143,Wasim Verma,Linguistics,Block A,292,136,15:00,16:00,12:00,13:00,Mon-Fri
+T144,Sahil Sharma,Geography,Block C,487,449,08:30,09:30,13:00,14:00,Mon-Sat
+T145,Chirag Dutta,Fine Arts,Block D,250,163,16:00,17:00,12:00,13:00,Mon-Sat
+T146,Heena Khan,Astronomy,Block A,396,301,13:30,14:30,13:30,14:30,Mon-Fri
+T147,Nikita Iyer,Business Studies,Block D,350,336,09:00,10:00,08:00,09:00,Mon-Fri
+T148,Gaurav Das,Fine Arts,Block C,423,400,13:30,14:30,14:30,15:30,Mon-Sat
+T149,Chirag Joshi,Biology,Block C,344,146,08:00,09:00,14:30,15:30,Mon-Fri
+T150,Rita Mishra,Psychology,Block C,287,104,08:00,09:00,14:30,15:30,Mon-Fri
+T151,Rita Singh,Statistics,Block C,120,250,08:00,09:00,11:30,12:30,Mon-Sat
+T152,Usha Roy,Physics,Block A,131,227,12:30,13:30,11:30,12:30,Mon-Fri
+T153,Esha Singh,Chemistry,Block B,138,269,13:30,14:30,09:30,10:30,Mon-Sat
+T154,Om Patel,Psychology,Block B,143,104,13:30,14:30,16:00,17:00,Mon-Sat
+T155,Arun Verma,Statistics,Block B,463,489,16:00,17:00,08:00,09:00,Mon-Fri
+T156,Xenia Mehta,Statistics,Block B,456,348,13:30,14:30,11:00,12:00,Mon-Fri
+T157,Deepa Sharma,Statistics,Block A,498,235,10:00,11:00,11:00,12:00,Mon-Sat
+T158,Wasim Gupta,Linguistics,Block B,404,197,10:00,11:00,08:30,09:30,Mon-Fri
+T159,Karan Roy,Economics,Block A,144,313,08:30,09:30,10:30,11:30,Mon-Fri
+T160,Vikram Mishra,Computer Science,Block A,411,257,14:30,15:30,09:30,10:30,Mon-Fri
+T161,Leena Patel,Computer Science,Block C,303,129,11:30,12:30,13:00,14:00,Mon-Fri
+T162,Farhan Kapoor,Mathematics,Block B,357,139,13:00,14:00,08:00,09:00,Mon-Fri
+T163,Vikram Chopra,Geography,Block A,345,121,09:00,10:00,12:30,13:30,Mon-Sat
+T164,Arun Verma,Sociology,Block C,352,256,09:30,10:30,09:30,10:30,Mon-Sat
+T165,Karan Bansal,Sociology,Block D,470,214,12:00,13:00,14:00,15:00,Mon-Fri
+T166,Usha Iyer,Chemistry,Block D,429,313,16:30,17:30,10:00,11:00,Mon-Fri
+T167,Bhavna Mishra,English,Block C,192,161,14:30,15:30,15:30,16:30,Mon-Fri
+T168,Chirag Patel,Sociology,Block D,453,217,09:30,10:30,13:30,14:30,Mon-Fri
+T169,Heena Bansal,English,Block D,331,308,16:30,17:30,16:30,17:30,Mon-Sat
+T170,Mohan Mehta,English,Block C,307,165,12:00,13:00,08:30,09:30,Mon-Sat
+T171,Leena Das,Chemistry,Block B,193,436,12:00,13:00,11:00,12:00,Mon-Fri
+T172,Qadir Roy,Statistics,Block C,296,136,08:00,09:00,13:00,14:00,Mon-Fri
+T173,Deepa Reddy,Environmental Science,Block D,201,336,13:00,14:00,15:00,16:00,Mon-Fri
+T174,Heena Roy,Chemistry,Block A,187,377,13:30,14:30,11:30,12:30,Mon-Sat
+T175,Gaurav Mishra,Fine Arts,Block D,421,186,16:00,17:00,16:00,17:00,Mon-Fri
+T176,Sahil Reddy,Linguistics,Block A,123,337,10:30,11:30,16:00,17:00,Mon-Fri
+T177,Om Das,Sociology,Block B,192,287,11:30,12:30,11:30,12:30,Mon-Fri
+T178,Leena Roy,Philosophy,Block B,308,305,09:30,10:30,13:00,14:00,Mon-Sat
+T179,Arun Bansal,Mathematics,Block B,242,331,16:00,17:00,14:30,15:30,Mon-Sat
+T180,Vikram Bose,Astronomy,Block C,261,305,15:30,16:30,12:30,13:30,Mon-Fri
+T181,Farhan Patel,Psychology,Block D,247,225,15:30,16:30,08:00,09:00,Mon-Sat
+T182,Nikita Reddy,Mathematics,Block C,180,266,11:00,12:00,13:00,14:00,Mon-Sat
+T183,Rita Khan,Philosophy,Block A,190,343,16:30,17:30,13:30,14:30,Mon-Fri
+T184,Sahil Chopra,Fine Arts,Block D,466,142,14:30,15:30,10:00,11:00,Mon-Fri
+T185,Usha Jain,Economics,Block C,134,151,15:00,16:00,16:00,17:00,Mon-Sat
+T186,Chirag Roy,Astronomy,Block C,394,208,12:30,13:30,14:30,15:30,Mon-Sat
+T187,Wasim Patel,Law,Block A,481,317,16:00,17:00,08:30,09:30,Mon-Fri
+T188,Usha Iyer,Chemistry,Block C,382,483,11:00,12:00,16:00,17:00,Mon-Sat
+T189,Chirag Joshi,English,Block C,266,426,08:00,09:00,08:30,09:30,Mon-Sat
+T190,Arun Reddy,Geography,Block B,151,100,15:30,16:30,14:00,15:00,Mon-Sat
+T191,Bhavna Khan,Computer Science,Block B,178,399,11:00,12:00,10:00,11:00,Mon-Fri
+T192,Heena Mehta,Business Studies,Block D,408,383,11:00,12:00,14:30,15:30,Mon-Sat
+T193,Om Bansal,Statistics,Block D,489,398,15:30,16:30,10:00,11:00,Mon-Fri
+T194,Rita Kapoor,Linguistics,Block C,165,213,09:00,10:00,15:00,16:00,Mon-Fri
+T195,Vikram Jain,Environmental Science,Block A,200,181,08:30,09:30,12:00,13:00,Mon-Fri
+T196,Usha Mehta,Sociology,Block D,176,425,12:00,13:00,12:00,13:00,Mon-Sat
+T197,Chirag Kapoor,Statistics,Block D,115,257,08:30,09:30,12:00,13:00,Mon-Sat
+T198,Bhavna Bansal,History,Block B,453,267,10:30,11:30,10:30,11:30,Mon-Sat
+T199,Esha Jain,Fine Arts,Block B,348,334,13:00,14:00,15:30,16:30,Mon-Sat
+T200,Juhi Nair,Sociology,Block B,369,420,08:30,09:30,12:30,13:30,Mon-Sat
