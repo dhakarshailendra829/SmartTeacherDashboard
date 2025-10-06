@@ -264,6 +264,7 @@ elif page == "Student Thoughts":
 elif page == "Admin Panel":
     admin_panel()
 
+
 # ABOUT PAGE
 elif page == "About":
     st.markdown("""
