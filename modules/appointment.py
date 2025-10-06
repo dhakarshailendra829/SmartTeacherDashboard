@@ -4,7 +4,6 @@ import os
 
 APPOINTMENTS_FILE = "data/appointments.csv"
 
-# Ensure appointments file exists with correct headers
 def ensure_appointments_file():
     headers = ["Student_Name", "Student_ID", "Teacher_ID", "Teacher_Name", "Slot", "Date"]
     if not os.path.exists(APPOINTMENTS_FILE) or os.stat(APPOINTMENTS_FILE).st_size == 0:
@@ -41,7 +40,6 @@ def book_appointment(student_name, student_id, teacher_row, slot):
 
     df = pd.DataFrame([data])
 
-    # Append to CSV
     df.to_csv(APPOINTMENTS_FILE, mode='a', index=False, header=False)
 
     st.success(f"Appointment booked for {teacher_row['Teacher_Name']} at {slot}")

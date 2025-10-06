@@ -7,12 +7,10 @@ from modules.appointment import show_calendar, book_appointment, get_appointment
 from modules.admin_panel import admin_panel
 import os
 
-# Initial Setup
 st.set_page_config(page_title="AI Teacher Assistant", page_icon="🎓", layout="wide")
 load_css()
 ensure_appointments_file()
 
-# Load Model & Teacher Data
 try:
     model = joblib.load("models/teacher_intent_model.pkl")
 except Exception as e:
@@ -29,13 +27,11 @@ if not all(col in teacher_df.columns for col in required_columns):
     st.error("Teacher CSV missing required columns!")
     st.stop()
 
-# Ensure Thoughts File Exists
 THOUGHTS_FILE = "data/student_thoughts.csv"
 if not os.path.exists(THOUGHTS_FILE) or os.stat(THOUGHTS_FILE).st_size == 0:
     with open(THOUGHTS_FILE, "w") as f:
         f.write("Student_Name,Student_ID,Teacher_Name,Thought,Date\n")
 
-# Navigation Bar
 st.markdown("""
 <style>
 .navbar {
@@ -84,7 +80,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 page = st.session_state['page']
 
-# Data Loaders
 def load_appointments():
     try:
         return pd.read_csv("data/appointments.csv")
@@ -100,12 +95,10 @@ def load_thoughts():
 appointments_df = load_appointments()
 thoughts_df = load_thoughts()
 
-# HOME PAGE
 if page == "Home":
     st.markdown("<h1 style='text-align:center; color:#00ffff;'>🎓 AI Teacher Assistant</h1>", unsafe_allow_html=True)
     st.write("<p style='text-align:center; font-size:18px;'>Search teachers, view appointments, and get inspired by top tech innovators!</p>", unsafe_allow_html=True)
 
-    # Dashboard Stats
     st.markdown("### 📊 Quick Stats")
     total_teachers = len(teacher_df)
     total_appointments = len(appointments_df)
@@ -117,7 +110,6 @@ if page == "Home":
     c2.metric("Total Appointments", total_appointments)
     c3.metric("Most Booked Teacher", most_booked_teacher)
 
-    # Top 3 Teachers
     st.markdown("### 🌟 Top 3 Teachers")
     if not appointments_df.empty:
         top3 = appointments_df['Teacher_Name'].value_counts().head(3)
@@ -126,7 +118,6 @@ if page == "Home":
     else:
         st.info("No appointments booked yet.")
 
-    # Recent Appointments Table
     st.markdown("### 📝 Recent Appointments")
     recent = appointments_df.tail(5)
     if not recent.empty:
@@ -134,10 +125,8 @@ if page == "Home":
     else:
         st.info("No recent appointments.")
 
-    # Motivational Cards
     show_motivational_cards()
 
-    # Search Section
     st.markdown("### 🔎 Search Teacher")
     query = st.text_input("Search by Name or ID:")
     if query:
@@ -160,7 +149,6 @@ if page == "Home":
         else:
             st.error("Teacher not found!")
 
-# BOOK APPOINTMENT PAGE
 elif page == "Book Appointment":
     st.title("📅 Book Appointment")
     student_name = st.text_input("👨‍🎓 Student Name")
@@ -184,19 +172,15 @@ elif page == "Book Appointment":
         </div>
         """, unsafe_allow_html=True)
 
-        
-# AI Suggestions / Slot Recommendations
         appointments_file = "data/appointments.csv"
         if os.path.exists(appointments_file):
             appt_df = pd.read_csv(appointments_file)
 
-            # Most popular teachers
             top_teachers = appt_df['Teacher_Name'].value_counts().head(3)
             st.info("💡 Popular Teachers based on past appointments:")
             for t, count in top_teachers.items():
                 st.write(f"- {t} — {count} bookings")
 
-            # Recommended slot for student
             if student_id:
                 student_history = appt_df[appt_df['Student_ID'] == student_id]
                 if not student_history.empty:
@@ -208,8 +192,6 @@ elif page == "Book Appointment":
         else:
             st.info("No past appointment data yet. Suggestions will appear here once students book appointments.")
 
-        
-# Show available slots for booking
         available_slots = show_calendar(teacher_row)
         if available_slots:
             st.markdown("### 🕒 Select Slot")
@@ -221,8 +203,6 @@ elif page == "Book Appointment":
                         book_appointment(student_name, student_id, teacher_row, slot)
                         st.success(f"Appointment booked with {teacher_row['Teacher_Name']} at {slot}")
 
-    
-# Show student's appointments
     if student_id:
         st.markdown("### 🎫 Your Appointments")
         df_student = get_appointments_by_student(student_id)
@@ -231,7 +211,6 @@ elif page == "Book Appointment":
         else:
             st.info("No appointments found for this Student ID.")
 
-# STUDENT THOUGHTS PAGE
 elif page == "Student Thoughts":
     st.title("💬 Share Your Thoughts")
     student_name = st.text_input("👨‍🎓 Student Name")
@@ -260,12 +239,9 @@ elif page == "Student Thoughts":
     else:
         st.info("No thoughts shared yet.")
 
-# ADMIN PANEL
 elif page == "Admin Panel":
     admin_panel()
 
-
-# ABOUT PAGE
 elif page == "About":
     st.markdown("""
     <h2 style='color:#00ffff'>About this Project</h2>

@@ -1,7 +1,6 @@
 import streamlit as st
 import random
 
-# Load Global CSS Styles
 def load_css():
     st.markdown("""
     <style>
@@ -94,8 +93,6 @@ def load_css():
     </style>
     """, unsafe_allow_html=True)
 
-
-# Top Navigation Component
 def show_navigation(selected_page: str):
     nav_items = ["Home", "Appointment", "Admin", "About"]
     st.markdown('<div class="top-nav">', unsafe_allow_html=True)
@@ -108,7 +105,6 @@ def show_navigation(selected_page: str):
 
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Motivational Cards
 def show_motivational_cards():
     inventors = [
         {"name": "Elon Musk", "quote": "When something is important enough, you do it even if the odds are not in your favor."},
