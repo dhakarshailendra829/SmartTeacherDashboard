@@ -6,6 +6,9 @@ from modules.ui_components import load_css, show_motivational_cards
 from modules.appointment import show_calendar, book_appointment, get_appointments_by_student, ensure_appointments_file
 from modules.admin_panel import admin_panel
 import os
+from modules.quiz import quiz_tab
+from modules.progress_report import progress_report_tab
+
 
 st.set_page_config(page_title="AI Teacher Assistant", page_icon="🎓", layout="wide")
 load_css()
@@ -70,7 +73,7 @@ st.markdown("""
 if 'page' not in st.session_state:
     st.session_state['page'] = "Home"
 
-pages = ["Home", "Book Appointment", "Student Thoughts", "Admin Panel", "About"]
+pages = ["Home", "Book Appointment", "Student Thoughts", "Admin Panel", "About", "Quiz", "Progress Report"]
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
 cols = st.columns(len(pages))
 for idx, name in enumerate(pages):
@@ -242,6 +245,12 @@ elif page == "Student Thoughts":
 elif page == "Admin Panel":
     admin_panel()
 
+elif page == "Quiz":
+    quiz_tab()
+
+elif page == "Progress Report":
+    progress_report_tab()
+
 elif page == "About":
     st.markdown("""
     <h2 style='color:#00ffff'>About this Project</h2>
@@ -270,3 +279,4 @@ elif page == "About":
         <li>Gamified Badges for Students</li>
     </ul>
     """, unsafe_allow_html=True)
+
