@@ -5,10 +5,10 @@ import plotly.express as px
 from datetime import datetime
 
 def admin_panel(data_path="data/teacher_dataset_100.csv"):
-    st.title("🧰 Admin Panel - Analytics & Management")
+    st.title(" Admin Panel - Analytics & Management")
     st.markdown("Manage teacher datasets, view appointments, student feedback, and analyze trends!")
 
-    st.subheader("📤 Upload New Teacher Dataset")
+    st.subheader(" Upload New Teacher Dataset")
     uploaded_file = st.file_uploader("Upload (.csv)", type=["csv"])
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
@@ -18,10 +18,10 @@ def admin_panel(data_path="data/teacher_dataset_100.csv"):
         else:
             st.error("Uploaded file is empty!")
 
-    st.subheader("📥 Download Current Dataset")
+    st.subheader(" Download Current Dataset")
     if os.path.exists(data_path):
         st.download_button(
-            "⬇️ Download Teacher Dataset",
+            "⬇ Download Teacher Dataset",
             data=open(data_path, "rb"),
             file_name="teacher_dataset_backup.csv",
             mime="text/csv"
@@ -29,16 +29,16 @@ def admin_panel(data_path="data/teacher_dataset_100.csv"):
 
     if os.path.exists(data_path):
         df = pd.read_csv(data_path)
-        st.markdown("### 📊 Teacher Dataset Stats")
+        st.markdown("### Teacher Dataset Stats")
         col1, col2, col3 = st.columns(3)
         col1.metric("Total Teachers", len(df))
         col2.metric("Unique Subjects", df['Subject'].nunique())
         col3.metric("Total Free Slots", df['Free_Start'].count())
 
-        with st.expander("📋 Preview Teacher Dataset"):
+        with st.expander(" Preview Teacher Dataset"):
             st.dataframe(df)
 
-    st.subheader("📅 Appointment Data & Analytics")
+    st.subheader(" Appointment Data & Analytics")
     appointment_file = "data/appointments.csv"
     if os.path.exists(appointment_file):
         appt_df = pd.read_csv(appointment_file)
@@ -53,14 +53,14 @@ def admin_panel(data_path="data/teacher_dataset_100.csv"):
             st.dataframe(appt_df.tail(10))
 
             if appt_df['Date'].notna().any():
-                st.markdown("#### 📈 Appointments Over Time")
+                st.markdown("#### Appointments Over Time")
                 appt_over_time = appt_df.groupby(appt_df['Date'].dt.date).size().reset_index(name='Count')
                 fig1 = px.line(appt_over_time, x='Date', y='Count', markers=True,
                                title="Appointments Trend Over Time", labels={'Count': 'Number of Appointments'})
                 st.plotly_chart(fig1, use_container_width=True)
 
             if 'Teacher_Name' in appt_df.columns and not appt_df['Teacher_Name'].isna().all():
-                st.markdown("#### 🏆 Most Booked Teachers")
+                st.markdown("#### Most Booked Teachers")
                 teacher_counts = appt_df['Teacher_Name'].value_counts().reset_index()
                 teacher_counts.columns = ['Teacher_Name', 'Bookings']
                 fig2 = px.bar(teacher_counts, x='Teacher_Name', y='Bookings', color='Bookings',
@@ -68,7 +68,7 @@ def admin_panel(data_path="data/teacher_dataset_100.csv"):
                 st.plotly_chart(fig2, use_container_width=True)
 
             if 'Teacher_ID' in appt_df.columns and not df.empty:
-                st.markdown("#### 📚 Subject Popularity")
+                st.markdown("#### Subject Popularity")
                 subject_counts = appt_df.merge(df[['Teacher_ID', 'Subject']], on='Teacher_ID', how='left')
                 subj_chart = subject_counts['Subject'].value_counts().reset_index()
                 subj_chart.columns = ['Subject', 'Count']
@@ -81,7 +81,7 @@ def admin_panel(data_path="data/teacher_dataset_100.csv"):
     else:
         st.info("No appointments file found yet.")
 
-    st.subheader("💬 Student Thoughts & Feedback")
+    st.subheader(" Student Thoughts & Feedback")
     thoughts_file = "data/student_thoughts.csv"
     if os.path.exists(thoughts_file):
         t_df = pd.read_csv(thoughts_file, parse_dates=['Date'])

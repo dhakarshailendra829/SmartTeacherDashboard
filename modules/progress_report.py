@@ -62,11 +62,11 @@ def progress_report_tab():
         if student_id in avg_by_student['Student_ID'].astype(str).values:
             rank = int(avg_by_student[avg_by_student['Student_ID'].astype(str) == student_id].index[0]) + 1
             total_students = avg_by_student.shape[0]
-            st.markdown(f"**🏆 Rank:** {rank} / {total_students}")
+            st.markdown(f"** Rank:** {rank} / {total_students}")
         else:
-            st.markdown("**🏆 Rank:** Not ranked (no quizzes)")
+            st.markdown("** Rank:** Not ranked (no quizzes)")
     except Exception:
-        st.markdown("**🏆 Rank:** Data not available")
+        st.markdown("** Rank:** Data not available")
 
     st.markdown("---")
 
@@ -117,7 +117,7 @@ def progress_report_tab():
 
     st.markdown("---")
 
-    st.markdown("### 🧾 Activity Timeline")
+    st.markdown("### Activity Timeline")
     timeline_rows = []
 
     for _, r in qf.iterrows():

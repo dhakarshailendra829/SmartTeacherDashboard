@@ -8,12 +8,60 @@ from modules.admin_panel import admin_panel
 import os
 from modules.quiz import quiz_tab
 from modules.progress_report import progress_report_tab
-
+import time
 
 st.set_page_config(page_title="AI Teacher Assistant", page_icon="🎓", layout="wide")
 load_css()
 ensure_appointments_file()
+USER_CSV = "data/users.csv"
 
+if not os.path.exists(USER_CSV):
+    df_users = pd.DataFrame(columns=['username', 'password'])
+    df_users.to_csv(USER_CSV, index=False)
+
+if 'username' not in st.session_state:
+    st.title("AI Teacher Assistant Login")
+
+    tab1, tab2 = st.tabs(["Create Account", "Login"])
+
+    with tab1:
+        new_user = st.text_input("Enter Username", key="new_user")
+        new_pass = st.text_input("Enter Password", type="password", key="new_pass")
+        if st.button("Create Account"):
+            if new_user.strip() == "" or new_pass.strip() == "":
+                st.error("Please fill both username and password!")
+            else:
+                df_users = pd.read_csv(USER_CSV)
+                if new_user in df_users['username'].values:
+                    st.error("Username already exists!")
+                else:
+                    df_users = pd.concat([
+                        df_users,
+                        pd.DataFrame([[new_user, new_pass]], columns=df_users.columns)
+                    ], ignore_index=True)
+                    df_users.to_csv(USER_CSV, index=False)
+                    st.session_state['username'] = new_user
+
+
+    with tab2:
+        login_user = st.text_input("Username", key="login_user")
+        login_pass = st.text_input("Password", type="password", key="login_pass")
+        if st.button("Login"):
+            df_users = pd.read_csv(USER_CSV)
+            if login_user in df_users['username'].values:
+                saved_pass = df_users[df_users['username'] == login_user]['password'].values[0]
+                if login_pass == saved_pass:
+                    st.session_state['username'] = login_user
+                    st.success(f"Welcome back, {login_user}!")
+                    st.rerun()  
+                else:
+                    st.error("Incorrect password!")
+            else:
+                st.error("User not found!")
+
+    st.stop()  
+
+st.sidebar.success(f"Logged in as: {st.session_state['username']}")
 try:
     model = joblib.load("models/teacher_intent_model.pkl")
 except Exception as e:
@@ -98,11 +146,12 @@ def load_thoughts():
 appointments_df = load_appointments()
 thoughts_df = load_thoughts()
 
+
 if page == "Home":
     st.markdown("<h1 style='text-align:center; color:#00ffff;'>🎓 AI Teacher Assistant</h1>", unsafe_allow_html=True)
     st.write("<p style='text-align:center; font-size:18px;'>Search teachers, view appointments, and get inspired by top tech innovators!</p>", unsafe_allow_html=True)
 
-    st.markdown("### 📊 Quick Stats")
+    st.markdown("### Quick Stats")
     total_teachers = len(teacher_df)
     total_appointments = len(appointments_df)
     most_booked_teacher = appointments_df['Teacher_Name'].value_counts().idxmax() if not appointments_df.empty else "N/A"
@@ -113,15 +162,15 @@ if page == "Home":
     c2.metric("Total Appointments", total_appointments)
     c3.metric("Most Booked Teacher", most_booked_teacher)
 
-    st.markdown("### 🌟 Top 3 Teachers")
+    st.markdown("### Top 3 Teachers")
     if not appointments_df.empty:
         top3 = appointments_df['Teacher_Name'].value_counts().head(3)
         for t in top3.index:
-            st.success(f"⭐ {t} — {top3[t]} Appointments")
+            st.success(f" {t} — {top3[t]} Appointments")
     else:
         st.info("No appointments booked yet.")
 
-    st.markdown("### 📝 Recent Appointments")
+    st.markdown("### Recent Appointments")
     recent = appointments_df.tail(5)
     if not recent.empty:
         st.dataframe(recent, use_container_width=True)
@@ -130,7 +179,7 @@ if page == "Home":
 
     show_motivational_cards()
 
-    st.markdown("### 🔎 Search Teacher")
+    st.markdown("### Search Teacher")
     query = st.text_input("Search by Name or ID:")
     if query:
         if query.isnumeric():
@@ -153,10 +202,10 @@ if page == "Home":
             st.error("Teacher not found!")
 
 elif page == "Book Appointment":
-    st.title("📅 Book Appointment")
-    student_name = st.text_input("👨‍🎓 Student Name")
-    student_id = st.text_input("🆔 Student ID")
-    teacher_query = st.text_input("🔍 Search Teacher by Name or ID")
+    st.title(" Book Appointment")
+    student_name = st.text_input(" Student Name")
+    student_id = st.text_input(" Student ID")
+    teacher_query = st.text_input(" Search Teacher by Name or ID")
 
     selected_teacher = None
     if teacher_query:
@@ -180,7 +229,7 @@ elif page == "Book Appointment":
             appt_df = pd.read_csv(appointments_file)
 
             top_teachers = appt_df['Teacher_Name'].value_counts().head(3)
-            st.info("💡 Popular Teachers based on past appointments:")
+            st.info(" Popular Teachers based on past appointments:")
             for t, count in top_teachers.items():
                 st.write(f"- {t} — {count} bookings")
 
@@ -197,7 +246,7 @@ elif page == "Book Appointment":
 
         available_slots = show_calendar(teacher_row)
         if available_slots:
-            st.markdown("### 🕒 Select Slot")
+            st.markdown("### Select Slot")
             for slot in available_slots:
                 if st.button(f"Book: {slot}"):
                     if not student_name or not student_id:
@@ -207,7 +256,7 @@ elif page == "Book Appointment":
                         st.success(f"Appointment booked with {teacher_row['Teacher_Name']} at {slot}")
 
     if student_id:
-        st.markdown("### 🎫 Your Appointments")
+        st.markdown("### Your Appointments")
         df_student = get_appointments_by_student(student_id)
         if not df_student.empty:
             st.dataframe(df_student, use_container_width=True)
@@ -215,11 +264,11 @@ elif page == "Book Appointment":
             st.info("No appointments found for this Student ID.")
 
 elif page == "Student Thoughts":
-    st.title("💬 Share Your Thoughts")
-    student_name = st.text_input("👨‍🎓 Student Name")
-    student_id = st.text_input("🆔 Student ID")
-    teacher_name = st.text_input("👩‍🏫 Teacher Name")
-    thought = st.text_area("✍️ Share your thoughts about the teacher")
+    st.title(" Share Your Thoughts")
+    student_name = st.text_input(" Student Name")
+    student_id = st.text_input(" Student ID")
+    teacher_name = st.text_input(" Teacher Name")
+    thought = st.text_area(" Share your thoughts about the teacher")
 
     if st.button("Submit Thought"):
         if not student_name or not student_id or not teacher_name or not thought:
@@ -235,7 +284,7 @@ elif page == "Student Thoughts":
             new_row.to_csv(THOUGHTS_FILE, mode='a', index=False, header=False)
             st.success("Thought shared successfully!")
 
-    st.markdown("### 📝 Recent Thoughts")
+    st.markdown("### Recent Thoughts")
     updated_thoughts = load_thoughts()
     if not updated_thoughts.empty:
         st.dataframe(updated_thoughts.tail(10), use_container_width=True)
@@ -255,10 +304,10 @@ elif page == "About":
     st.markdown("""
     <h2 style='color:#00ffff'>About this Project</h2>
     <p>Advanced <b>Teacher Assistant</b> with interactive booking, analytics, and AI-driven features.</p>
-    <h3>👤 Project Maker</h3>
+    <h3> Project Maker</h3>
     <p><b>Shailendra Dhakad</b> – Artificial Intelligence/Machine Learning Student</p>
 
-    <h3>🌟 Features</h3>
+    <h3> Features</h3>
     <ul>
         <li>Teacher Search & Availability</li>
         <li>Interactive Appointment Booking</li>
@@ -270,7 +319,7 @@ elif page == "About":
         <li>Student Thoughts Sharing</li>
     </ul>
 
-    <h3>🔮 Future Roadmap</h3>
+    <h3> Future Roadmap</h3>
     <ul>
         <li>AI-based Teacher & Slot Suggestions</li>
         <li>Email & PDF Notifications</li>
@@ -280,3 +329,14 @@ elif page == "About":
     </ul>
     """, unsafe_allow_html=True)
 
+if 'username' in st.session_state:
+    username = st.session_state['username']
+    st.sidebar.write(f" Welcome, {username}!")
+
+    if st.sidebar.button("Logout"):
+        del st.session_state['username']
+        st.success("You have been logged out successfully!")
+        st.rerun()  
+
+else:
+    st.warning("Please login or create an account to continue.")

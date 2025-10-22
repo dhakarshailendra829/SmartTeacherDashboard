@@ -5,11 +5,11 @@ import datetime
 import os  
 
 def quiz_tab():
-    st.markdown("## 📝 Student Quiz")
+    st.markdown("## Student Quiz")
     st.write("Enter your details and take a 10-question quiz!")
 
-    student_name = st.text_input("👤 Student Name")
-    student_id = st.text_input("🆔 Student ID")
+    student_name = st.text_input(" Student Name")
+    student_id = st.text_input(" Student ID")
 
     if student_name and student_id:
         if "quiz_started" not in st.session_state:
@@ -64,7 +64,7 @@ def quiz_tab():
                     "Result": "Correct" if is_correct else "Wrong"
                 })
 
-            st.success(f"🎉 {student_name}, you got {correct_count} correct and {wrong_count} wrong out of 10.")
+            st.success(f" {student_name}, you got {correct_count} correct and {wrong_count} wrong out of 10.")
 
             st.markdown("### Detailed Analysis")
             analysis_df = pd.DataFrame(analysis_data)
@@ -72,7 +72,6 @@ def quiz_tab():
 
             save_result(student_name, student_id, correct_count, len(questions))
 
-            # Restart option
             if st.button("Restart Quiz"):
                 st.session_state.quiz_started = False
                 st.session_state.quiz_submitted = False
