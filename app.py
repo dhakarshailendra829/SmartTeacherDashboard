@@ -121,7 +121,7 @@ st.markdown("""
 if 'page' not in st.session_state:
     st.session_state['page'] = "Home"
 
-pages = ["Home", "Book Appointment", "Student Thoughts", "Admin Panel", "About", "Quiz", "Progress Report"]
+pages = ["Home", "Book Appointment", "Student Thoughts", "Quiz", "Progress Report", "Admin Panel", "About"]
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
 cols = st.columns(len(pages))
 for idx, name in enumerate(pages):
