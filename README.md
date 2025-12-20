@@ -97,7 +97,6 @@ This project solves those problems by providing:
 
 ## 📂 Project Structure
 
-```text
 SmartTeacherDashboard/
 │
 ├── app.py                       # Main Streamlit frontend
