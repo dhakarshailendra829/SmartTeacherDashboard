@@ -95,32 +95,32 @@ This project solves those problems by providing:
 - Responsive layout
 ---
 
-## Project Structure
+## 📂 Project Structure
+
+```text
 SmartTeacherDashboard/
 │
-├── app.py # Main Streamlit frontend
+├── app.py                       # Main Streamlit frontend
+│
 ├── models/
-│ └── teacher_intent_model.pkl
+│   └── teacher_intent_model.pkl # Trained ML model
 │
 ├── modules/
-│ ├── ui_components.py # CSS & UI helpers
-│ ├── appointment.py # Booking logic
-│ ├── admin_panel.py # Admin controls
-│ ├── quiz.py # Quiz module
-│ └── progress_report.py # Progress analytics
+│   ├── ui_components.py         # CSS & UI helpers
+│   ├── appointment.py           # Booking & scheduling logic
+│   ├── admin_panel.py           # Admin controls & management
+│   ├── quiz.py                  # Student quiz module
+│   └── progress_report.py       # Progress analytics & reports
 │
 ├── data/
-│ ├── users.csv
-│ ├── teacher_dataset_100.csv
-│ ├── appointments.csv
-│ └── student_thoughts.csv
+│   ├── users.csv                # User login credentials
+│   ├── teacher_dataset_100.csv  # Teacher information dataset
+│   ├── appointments.csv         # Appointment booking history
+│   └── student_thoughts.csv     # Student feedback & thoughts
 │
 ├── images/
-│ └── (UI assets if any)
-│
-└── README.md
+     └── (UI assets if any)
 ---
-
 ## Tech Stack
 - **Frontend:** Streamlit
 - **Backend Logic:** Python
